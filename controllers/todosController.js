@@ -10,13 +10,8 @@ const getTodos = async (req, res) => {
 };
 
 const getTodo = async (req, res) => {
-    await Todo.findById(req.params.id, (error, todo) => {
-        if (error) {
-            res.status(400).json({ message: error.message });
-        } else {
-            res.json(todo);
-        }
-    });
+    const todo = await Todo.findById(req.params.id).exec();
+    res.json(todo);
 };
 
 const createTodo = async (req, res) => {
@@ -36,8 +31,11 @@ const updateTodo = async (req, res) => {
     });
     res.status(200).json(updatedTodo);
 };
+
 const deleteTodo = async (req, res) => {
-    await Todo.findByIdAndDelete(req.params.id).remove();
+    const todoToBeDeleted = Todo.findById(req.params.id);
+
+    await todoToBeDeleted.deleteOne();
     res.json({ Message: "Todo deleted" });
 };
 
