@@ -1,9 +1,17 @@
-import React ,{useEffect}from 'react'
+import { useEffect, useState } from "react";
+import { todoReducer } from "../utils/reducers";
 
-const useFetchHook = (url) => {
- const fetchTodoData=()=>{
-    
- }
-}
+const initialStates = {
+    loading: false,
+    error: false,
+    data: [],
+};
 
-export default useFetchHook
+const useFetchHook = (initialUrl, httpMethod) => {
+    const [url, setUrl] = useState(initialUrl);
+
+    const [state, dispatch] = useReducer(todoReducer, initialStates);
+    const fetchTodoData = () => {};
+};
+
+export default useFetchHook;
