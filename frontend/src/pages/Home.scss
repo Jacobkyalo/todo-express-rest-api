@@ -1,0 +1,19 @@
+.container {
+    width: 800px;
+    max-width: 100%;
+    margin: auto;
+
+    .container__wrapper {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .container__content {
+            width: 100%;
+            background-color: #6eb7cf;
+            padding: 1.5rem 3rem;
+            border-radius: 0.6rem;
+        }
+    }
+}
