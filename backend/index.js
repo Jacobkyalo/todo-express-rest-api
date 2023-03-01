@@ -7,6 +7,8 @@ const routerRoutes = require("./routes/todos");
 const port = process.env.PORT || 5000;
 const app = express();
 
+// connect to database
+mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB_URI, () =>
     console.log("Database connected successfully")
 );
