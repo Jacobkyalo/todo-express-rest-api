@@ -1,17 +1,13 @@
 const mongoose = require("mongoose");
 
 const TodoSchema = new mongoose.Schema({
-    title: {
+    text: {
         type: String,
-        required: true,
-    },
-    description: {
-        type: String,
-        required: true,
+        required: [true, "Please enter a todo text"],
+        min: 4,
     },
     completed: {
         type: Boolean,
-        required: true,
     },
 });
 
