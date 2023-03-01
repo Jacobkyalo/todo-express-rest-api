@@ -16,8 +16,7 @@ const getTodo = async (req, res) => {
 
 const createTodo = async (req, res) => {
     const newTodo = new Todo({
-        title: req.body.title,
-        description: req.body.description,
+        text: req.body.text,
         completed: req.body.completed,
     });
 
